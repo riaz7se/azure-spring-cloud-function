@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    azure:
+      cosmos:
+        database: auditlogDB
+        endpoint: https://data-audit-dev.documents.azure.com:443/
+        key: jgnUDcrXnUQakBfPFh9QLGJSsq7jM2p7KfhYj2sjh7Dwhu1hzFVMOZWTm5N1xDiNvtFCB0mXSYDgS90eW8W1Bw==
+        populate-query-metrics: true
