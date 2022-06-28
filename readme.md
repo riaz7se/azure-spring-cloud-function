@@ -1,4 +1,7 @@
-# Your Repo Has Been Sucessfully Created
+# Spring Cloud Functions - Azure Function - EventHub - Cosmos DB
+#### This is Spring Boot application implemented using Spring Cloud Functions & deployed on Azure Function App. This code is to use for generic Auditlog. 
+Auditlogs can be triggered from Http or logs pushed to EventHub are consumed by Function App and stored into Cosmos DB Container.
+
 ```shell
 mvn archetype:generate --batch-mode -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DappName=azrarf-functionapp-data-audit-service -DresourceGroup=AZR-ARF-DMT-DEV -DappRegion=US_EAST -DgroupId=com.jnj.auditlog.func. -DartifactId=auditlog-spring-az-cloud-func
 ```
