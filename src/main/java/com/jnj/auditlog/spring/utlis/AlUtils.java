@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jnj.auditlog.spring.model.AlContainerData;
 import com.jnj.auditlog.spring.model.AlEventData;
 import com.microsoft.azure.documentdb.Document;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.springframework.beans.BeanUtils;
@@ -19,11 +20,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+@Slf4j
 public class AlUtils {
 
     public static AlEventData containerToEntity(AlContainerData alDataContainer) {
+        log.info("AlContainer:::: {} ", alDataContainer);
         AlEventData alEventData = new AlEventData();
         BeanUtils.copyProperties(alDataContainer, alEventData);
+
+        log.info("AlEve::: {} ", alEventData);
         return alEventData;
     }
 
@@ -51,6 +56,7 @@ public class AlUtils {
     public static boolean isValidateJsonSearchPath(Map<String, Object> searchMap) {
         HashSet<String> validJsonKeys = new HashSet() {{
             add("appName");
+            add("projectName");
             add("infoType");
             add("operation");
             add("updateBy");

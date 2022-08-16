@@ -4,16 +4,14 @@ import com.azure.spring.data.cosmos.core.mapping.Container;
 import com.azure.spring.data.cosmos.core.mapping.GeneratedValue;
 import com.azure.spring.data.cosmos.core.mapping.PartitionKey;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 import java.util.Map;
 
 @Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -36,11 +34,9 @@ public class AlContainerData {
 
     private String operation;
 
-    private String appKey;
+    private long tableId;
 
-    private String requestId;
-
-    private Map<String, Object> payload;
+    private Object payload;
 
     private String updateTimestamp = String.valueOf(LocalDateTime.now());
 

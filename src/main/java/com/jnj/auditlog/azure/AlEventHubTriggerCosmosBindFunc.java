@@ -25,10 +25,12 @@ public class AlEventHubTriggerCosmosBindFunc {
             OutputBinding<Object> document,
             final ExecutionContext context) {
 
-        context.getLogger().info("Event hub message received: " + auditLogEventData.toString());
+        context.getLogger().info("Event hub message received: " + String.valueOf(auditLogEventData.toString()));
 
         //enrich or modify auditLogEventData here
 
         document.setValue(auditLogEventData);
+
+
     }
 }

@@ -12,20 +12,20 @@ import java.util.Map;
 @ToString
 public class AlEventData {
 
-    private String appName;
+    String appName;
+
     private String projectName;
 
     private String infoType;
 
     private String operation;
 
-    private String appKey;
+    private long tableId;  //TODO: add, test with list payload search query
 
-    private String requestId;
+//    private Map<String, Object> payload;
+    private Object payload;
 
-    private Map<String, Object> payload;
-
-    private String updateTimestamp = String.valueOf(LocalDateTime.now());
+    private String updateTimestamp;
 
     private String updateBy;
 

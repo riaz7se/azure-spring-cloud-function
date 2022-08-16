@@ -7,17 +7,19 @@ import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.util.ObjectUtils;
 
 import java.util.Optional;
 
+@Slf4j
 public class AlXlReportFuncHandler extends FunctionInvoker<AlEventData, ByteArrayResource> {
 
     @FunctionName("alXlReportFunc")
     public HttpResponseMessage execute(
-            @HttpTrigger(name = "projectName", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION, route = "auditlog-report")
+            @HttpTrigger(name = "projectName", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS, route = "auditlog-report")
             HttpRequestMessage<Optional<AlEventData>> request, ExecutionContext context) {
 
         if (Optional.ofNullable(request).isPresent()) {
